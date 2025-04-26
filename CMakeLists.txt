@@ -23,6 +23,8 @@ CONFIGURE_FILE(
 SET(SOURCE_FILES
     src/types/Filter.cpp
     src/types/Filter.h
+    src/types/Measure.cpp
+    src/types/Measure.h
     src/ECFMP.cpp
     src/ECFMP.h
     src/main.cpp
