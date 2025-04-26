@@ -53,6 +53,7 @@ TARGET_INCLUDE_DIRECTORIES(ECFMP_PLUGIN_SHARED PUBLIC
     ${CMAKE_SOURCE_DIR}/external/include
     ${CMAKE_SOURCE_DIR}
 )
+INCLUDE(external/CMakeLists.txt)
 
 set(gtest_force_shared_crt)
 enable_testing()

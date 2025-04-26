@@ -1,0 +1,3 @@
+FIND_PACKAGE(nlohmann_json CONFIG REQUIRED)
+
+TARGET_LINK_LIBRARIES(ECFMP_PLUGIN_STATIC nlohmann_json::nlohmann_json)
