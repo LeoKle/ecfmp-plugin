@@ -3,6 +3,7 @@ if(BUILD_TESTING)
 
     add_executable(tests
         types/test_Measure.cpp
+        types/test_FlowMeasure.cpp
         types/test_Filter.cpp
         utils/test_Date.cpp
         test_main.cpp
