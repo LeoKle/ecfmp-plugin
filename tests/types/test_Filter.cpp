@@ -23,15 +23,17 @@ TEST(FilterTest, TestFilterTypeFromString) {
 TEST(FilterTest, TestFilterFromJson) {
     using namespace ecfmp::types;
 
-    const json adepJson = {{"type", "ADEP"}, {"value", "KATL"}};
+    const json adepJson = {{"type", "ADEP"}, {"value", {"KATL"}}};
     const auto filterAdep = Filter::fromJson(adepJson);
     EXPECT_EQ(filterAdep.type, FilterType::ADEP);
-    EXPECT_EQ(std::get<std::string>(filterAdep.value), "KATL");
-
-    const json adesJson = {{"type", "ADES"}, {"value", "KATL"}};
+    EXPECT_EQ(std::get<std::vector<std::string>>(filterAdep.value).size(), 1);
+    EXPECT_EQ(std::get<std::vector<std::string>>(filterAdep.value)[0], "KATL");
+    
+    const json adesJson = {{"type", "ADES"}, {"value", {"KATL"}}};
     const auto filterAdes = Filter::fromJson(adesJson);
     EXPECT_EQ(filterAdes.type, FilterType::ADES);
-    EXPECT_EQ(std::get<std::string>(filterAdes.value), "KATL");
+    EXPECT_EQ(std::get<std::vector<std::string>>(filterAdes.value).size(), 1);
+    EXPECT_EQ(std::get<std::vector<std::string>>(filterAdes.value)[0], "KATL");
 
     const json levelAboveJson = {{"type", "level_above"}, {"value", 350}};
     const auto filterLevelAbove = Filter::fromJson(levelAboveJson);

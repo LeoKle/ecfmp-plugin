@@ -24,8 +24,7 @@ struct EventData {
 class Filter {
    public:
     FilterType type;
-    std::variant<std::int64_t, std::string, std::vector<std::int64_t>, std::vector<std::string>,
-                 std::vector<struct EventData>>
+    std::variant<std::int64_t, std::vector<std::int64_t>, std::vector<std::string>, std::vector<struct EventData>>
         value;
 
     Filter();

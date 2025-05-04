@@ -13,7 +13,7 @@ const Filter Filter::fromJson(const json& j) {
         switch (filter.type) {
             case FilterType::ADEP:
             case FilterType::ADES:
-                filter.value = j.at("value").get<std::string>();
+                filter.value = j.at("value").get<std::vector<std::string>>();
                 break;
             case FilterType::LEVEL_ABOVE:
             case FilterType::LEVEL_BELOW:
