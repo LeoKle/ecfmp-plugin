@@ -23,14 +23,10 @@ class FlowMeasure {
     std::chrono::utc_clock::time_point withdrawn_at = utils::Date::defaultTime;
     std::list<int> notified_firs;
 
-    std::vector<Measure> measures;
+    Measure measure;
     std::vector<Filter> filters;
 
     FlowMeasure();
-    FlowMeasure(std::int64_t id, std::string ident, std::int64_t event_id, std::string reason,
-                std::chrono::utc_clock::time_point start_time, std::chrono::utc_clock::time_point end_time,
-                std::chrono::utc_clock::time_point withdrawn_at, std::list<int> notified_firs,
-                std::vector<Measure> measures, std::vector<Filter> filters);
 
     static const FlowMeasure fromJson(const json& j);
 };
