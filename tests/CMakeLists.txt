@@ -2,6 +2,7 @@ if(BUILD_TESTING)
     find_package(GTest REQUIRED)
 
     add_executable(tests
+        data/test_EcfmpDataProvider.cpp
         types/test_Measure.cpp
         types/test_FlowMeasure.cpp
         types/test_Filter.cpp
