@@ -1,12 +1,12 @@
 #pragma once
 
-#include <curl/curl.h>
-
+#include <memory>
 #include <mutex>
 #include <nlohmann/json.hpp>
 #include <string>
 
 #include "IFlowMeasureDataProvider.h"
+#include "api/IRestApi.h"
 #include "types/FlowMeasure.h"
 
 using json = nlohmann::json;
@@ -14,7 +14,7 @@ using json = nlohmann::json;
 namespace ecfmp::data {
 class EcfmpDataProvider : public IFlowMeasureDataProvider {
    public:
-    EcfmpDataProvider();
+    EcfmpDataProvider(std::unique_ptr<ecfmp::api::IRestApi> restApi);
     ~EcfmpDataProvider() = default;
 
     std::vector<types::FlowMeasure> getMeasures() override;
@@ -22,16 +22,6 @@ class EcfmpDataProvider : public IFlowMeasureDataProvider {
     types::FlowMeasure getMeasure(const int64_t measureId) override;
 
    private:
-    struct CurlHandle {
-        std::mutex lock;
-        CURL* socket;
-
-        CurlHandle() : lock(), socket(curl_easy_init()) {}
-    };
-
-    CurlHandle m_getHandle;
-    std::string m_baseUrl;
-
-    const json performGet(const std::string& endpoint);
+    std::unique_ptr<ecfmp::api::IRestApi> m_restApi;
 };
 }  // namespace ecfmp::data
