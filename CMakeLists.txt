@@ -21,6 +21,8 @@ CONFIGURE_FILE(
 # )
 
 SET(SOURCE_FILES
+    src/api/RestApiCurl.cpp
+    src/api/RestApiCurl.h
     src/data/EcfmpDataProvider.cpp
     src/data/EcfmpDataProvider.h
     src/data/IFlowMeasureDataProvider.h

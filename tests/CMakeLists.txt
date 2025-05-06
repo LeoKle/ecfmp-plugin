@@ -2,6 +2,7 @@ if(BUILD_TESTING)
     find_package(GTest REQUIRED)
 
     add_executable(tests
+        api/test_RestApiCurl.cpp
         data/test_EcfmpDataProvider.cpp
         types/test_Measure.cpp
         types/test_FlowMeasure.cpp
