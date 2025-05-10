@@ -32,6 +32,8 @@ SET(SOURCE_FILES
     src/types/FlowMeasure.h
     src/types/Measure.cpp
     src/types/Measure.h
+    src/types/Pilot.cpp
+    src/types/Pilot.h
     src/ECFMP.cpp
     src/ECFMP.h
     src/main.cpp
