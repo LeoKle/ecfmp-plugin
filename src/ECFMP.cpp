@@ -8,4 +8,10 @@ ECFMP::ECFMP()
                                PLUGIN_LICENSE) {}
 ECFMP::~ECFMP() {}
 
+void ECFMP::OnRadarTargetPositionUpdate(EuroScopePlugIn::CRadarTarget radartarget) {}
+void ECFMP::OnFlightPlanDisconnect(EuroScopePlugIn::CFlightPlan flightplan) {}
+void ECFMP::OnFlightPlanFlightPlanDataUpdate(EuroScopePlugIn::CFlightPlan flightplan) {}
+void ECFMP::OnFlightPlanControllerAssignedDataUpdate(EuroScopePlugIn::CFlightPlan flightplan, int datatype) {}
+void ECFMP::OnAirportRunwayActivityChanged() {}
+
 }  // namespace ecfmp

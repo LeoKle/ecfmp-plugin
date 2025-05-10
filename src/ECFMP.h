@@ -14,5 +14,11 @@ class ECFMP : public EuroScopePlugIn::CPlugIn {
     ~ECFMP();
 
     void DisplayMessage(const std::string &message, const std::string &sender = "ECFMP");
+
+    void OnRadarTargetPositionUpdate(EuroScopePlugIn::CRadarTarget radartarget) override;
+    void OnFlightPlanDisconnect(EuroScopePlugIn::CFlightPlan flightplan) override;
+    void OnFlightPlanFlightPlanDataUpdate(EuroScopePlugIn::CFlightPlan flightplan) override;
+    void OnFlightPlanControllerAssignedDataUpdate(EuroScopePlugIn::CFlightPlan flightplan, int datatype) override;
+    void OnAirportRunwayActivityChanged() override;
 };
 }  // namespace ecfmp
