@@ -4,6 +4,14 @@ using namespace ecfmp::types;
 
 Pilot::Pilot() : callsign(""), lastUpdate(std::chrono::utc_clock::now()), disconnected(false) {}
 
+Pilot::Pilot(const std::string& callsign, const std::chrono::utc_clock::time_point& lastUpdate, bool disconnected,
+             const PositionData& position, const FlightplanData& flightplan)
+    : callsign(callsign),
+      lastUpdate(lastUpdate),
+      disconnected(disconnected),
+      position(position),
+      flightplan(flightplan) {}
+
 void Pilot::update(const EuroScopePlugIn::CFlightPlan& flightplan) {
     this->lastUpdate = std::chrono::utc_clock::now();
     this->disconnected = false;
