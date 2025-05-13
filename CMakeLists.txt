@@ -26,6 +26,8 @@ SET(SOURCE_FILES
     src/data/EcfmpDataProvider.cpp
     src/data/EcfmpDataProvider.h
     src/data/IFlowMeasureDataProvider.h
+    src/managers/PilotManager.cpp
+    src/managers/PilotManager.h
     src/types/Filter.cpp
     src/types/Filter.h
     src/types/FlowMeasure.cpp

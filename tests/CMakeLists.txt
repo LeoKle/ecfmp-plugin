@@ -4,6 +4,7 @@ if(BUILD_TESTING)
     add_executable(tests
         api/test_RestApiCurl.cpp
         data/test_EcfmpDataProvider.cpp
+        managers/test_PilotManager.cpp
         types/test_Measure.cpp
         types/test_FlowMeasure.cpp
         types/test_Filter.cpp

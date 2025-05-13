@@ -7,6 +7,9 @@
 #include "EuroScopePlugIn.h"
 #pragma warning(pop)
 
+#include "interfaces/IPilotManager.h"
+#include "managers/PilotManager.h"
+
 namespace ecfmp {
 class ECFMP : public EuroScopePlugIn::CPlugIn {
    public:
@@ -20,5 +23,8 @@ class ECFMP : public EuroScopePlugIn::CPlugIn {
     void OnFlightPlanFlightPlanDataUpdate(EuroScopePlugIn::CFlightPlan flightplan) override;
     void OnFlightPlanControllerAssignedDataUpdate(EuroScopePlugIn::CFlightPlan flightplan, int datatype) override;
     void OnAirportRunwayActivityChanged() override;
+
+   private:
+    std::shared_ptr<ecfmp::interfaces::IPilotManager> m_pilotManager;
 };
 }  // namespace ecfmp

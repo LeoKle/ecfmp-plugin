@@ -9,9 +9,11 @@
 
 namespace ecfmp::types {
 class Pilot {
+   public:
     struct PositionData {
         float latitude;
         float longitude;
+        PositionData(float latitude = 0.0f, float longitude = 0.0f) : latitude(latitude), longitude(longitude) {}
     };
 
     struct FlightplanData {
@@ -19,6 +21,9 @@ class Pilot {
         std::string ades;
         std::string alternate;
         std::string route;
+        FlightplanData(const std::string& adep = "", const std::string& ades = "", const std::string& alternate = "",
+                       const std::string& route = "")
+            : adep(adep), ades(ades), alternate(alternate), route(route) {}
     };
 
     Pilot();
@@ -34,6 +39,7 @@ class Pilot {
     FlightplanData flightplan;
 
    public:
+    // TODO: kill / remove any ES references
     void update(const EuroScopePlugIn::CFlightPlan& flightplan);
     static Pilot fromCFlightPlan(const EuroScopePlugIn::CFlightPlan& flightplan);
 
@@ -42,5 +48,7 @@ class Pilot {
     bool isDisconnected() const { return disconnected; }
     const PositionData& getPosition() const { return position; }
     const FlightplanData& getFlightplan() const { return flightplan; }
+
+    void setDisconnected(bool disconnected) { this->disconnected = disconnected; }
 };
 }  // namespace ecfmp::types
